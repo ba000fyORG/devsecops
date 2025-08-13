@@ -6,4 +6,4 @@
     - name: Ensure demo file exists
       copy:
         dest: /tmp/devsecops_demo.txt
-        content: "Hello from Ansible!"
+        content: "Hello from Ansible!" #sec1

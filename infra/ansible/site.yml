@@ -4,6 +4,7 @@
   gather_facts: false
   tasks:
     - name: Ensure demo file exists
-      copy:
+      ansible.builtin.copy:
         dest: /tmp/devsecops_demo.txt
-        content: "Hello from Ansible!" #sec1
+        content: "Hello from Ansible!"
+        mode: "0644"

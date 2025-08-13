@@ -1,0 +1,42 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-merge-conflict
+      - id: check-added-large-files
+      - id: detect-private-key
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.90.1
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_validate
+
+  - repo: https://github.com/ansible/ansible-lint
+    rev: v24.7.0
+    hooks:
+      - id: ansible-lint
+        files: ^infra/ansible/
+
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier
+        language: system
+        types_or: [javascript, jsx, ts, tsx, json, css, markdown, yaml]
+        entry: bash -c "cd app && npx --yes prettier --write ."
+
+  - repo: local
+    hooks:
+      - id: trivy-fs
+        name: trivy fs (config,secret,vuln)
+        language: system
+        pass_filenames: false
+        entry: bash -c "docker run --rm -v "$PWD:/repo" -w /repo aquasec/trivy:latest fs --scanners vuln,secret,config --exit-code 1 ."

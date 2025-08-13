@@ -1,0 +1,9 @@
+---
+- name: Demo playbook
+  hosts: local
+  gather_facts: false
+  tasks:
+    - name: Ensure demo file exists
+      copy:
+        dest: /tmp/devsecops_demo.txt
+        content: "Hello from Ansible!"

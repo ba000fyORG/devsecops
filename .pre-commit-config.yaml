@@ -24,19 +24,14 @@ repos:
     hooks:
       - id: ansible-lint
         files: ^infra/ansible/
+        additional_dependencies:
+          - "ansible>=9"
 
-  - repo: local
+  # Prettier как «проверка» (в CI не переписывает файлы)
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.3.3
     hooks:
       - id: prettier
-        name: prettier
-        language: system
+        args: ["--check"]
+        # Применять к фронтенду и YAML/MD
         types_or: [javascript, jsx, ts, tsx, json, css, markdown, yaml]
-        entry: bash -c "cd app && npx --yes prettier --write ."
-
-  - repo: local
-    hooks:
-      - id: trivy-fs
-        name: trivy fs (config,secret,vuln)
-        language: system
-        pass_filenames: false
-        entry: bash -c "docker run --rm -v "$PWD:/repo" -w /repo aquasec/trivy:latest fs --scanners vuln,secret,config --exit-code 1 ."

@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    - cron: '0 3 * * 1'
+    - cron: "0 3 * * 1"
 jobs:
   analyze:
     name: Analyze
@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'javascript' ]
+        language: ["javascript"]
     steps:
       - uses: actions/checkout@v4
       - uses: github/codeql-action/init@v3

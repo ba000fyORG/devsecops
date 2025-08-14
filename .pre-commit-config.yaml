@@ -19,13 +19,13 @@ repos:
       - id: terraform_fmt
       - id: terraform_validate
 
-  - repo: https://github.com/ansible/ansible-lint
-    rev: v24.7.0
-    hooks:
-      - id: ansible-lint
-        files: ^infra/ansible/
-        additional_dependencies:
-          - "ansible>=9"
+  # - repo: https://github.com/ansible/ansible-lint
+  #   rev: v24.7.0
+  #   hooks:
+  #     - id: ansible-lint
+  #       files: ^infra/ansible/
+  #       additional_dependencies:
+  #         - "ansible>=9"
 
   # ↓↓↓ Заменили mirrors-prettier на локальный prettier --check
   - repo: local

@@ -8,3 +8,4 @@
         dest: /tmp/devsecops_demo.txt
         content: "Hello from Ansible!"
         mode: "0644"
+

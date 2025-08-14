@@ -12,6 +12,7 @@ repos:
     rev: v1.35.1
     hooks:
       - id: yamllint
+        exclude: ^\.yamllint$|^\.github/workflows/
 
   - repo: https://github.com/antonbabenko/pre-commit-terraform
     rev: v1.90.0

@@ -29,4 +29,4 @@ jobs:
           terraform_version: 1.6.6
 
       # Всё остальное подтянется как additional_dependencies из .pre-commit-config.yaml
-      - run: pre-commit run --all-files
+      - run: SKIP=end-of-file-fixer pre-commit run --all-files

@@ -1,0 +1,12 @@
+* text=auto eol=lf
+
+# Бинарники (не трогаем EOL)
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.gif -text
+*.ico -text
+*.svg -text
+
+# Локально специфичные файлы — тоже как бинарные
+.vscode/* -text

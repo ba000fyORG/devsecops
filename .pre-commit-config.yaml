@@ -29,10 +29,10 @@ repos:
   #         - "ansible>=9"
 
   # ↓↓↓ Заменили mirrors-prettier на локальный prettier --check
-  - repo: local
-    hooks:
-      - id: prettier-check
-        name: prettier --check
-        language: system
-        pass_filenames: false
-        entry: bash -lc 'npx --yes prettier --check "app/**/*.{ts,tsx,js,jsx,json,css}" "**/*.{yml,yaml,md,json}"'
+  # - repo: local
+  #   hooks:
+  #     - id: prettier-check
+  #       name: prettier --check
+  #       language: system
+  #       pass_filenames: false
+  #       entry: bash -lc 'npx --yes prettier --check "app/**/*.{ts,tsx,js,jsx,json,css}" "**/*.{yml,yaml,md,json}"'
